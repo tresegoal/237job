@@ -74,7 +74,7 @@ class JobsController extends Controller
             ->count();
         //$recentJobs = DB::table('jobs')->limit(5)->orderBy('updated_at', 'desc')->get();
 
-        $popularJobs = job::with('Category')
+        $popularJobs = Job::with('Category')
             ->with('Ville')
             ->with('Type')
             ->with('Salaire')
@@ -83,7 +83,7 @@ class JobsController extends Controller
             ->orderBy('visite', 'desc')
             ->get();
 
-        $recentJobs =job::with('Category')
+        $recentJobs =Job::with('Category')
             ->with('Ville')
             ->with('Type')
             ->with('Salaire')
